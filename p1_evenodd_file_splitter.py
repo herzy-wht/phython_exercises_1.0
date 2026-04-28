@@ -4,21 +4,31 @@
 #The second text file will be named odd.txt that will contains all odd numbers extracted from the numbers.txt
 
 #open and read file
-numbers_file = open('numbers.txt', 'r')
-#make and open even and odd file
-even_file = open('even.txt', 'w')
-odd_file = open('odd.txt', 'w')
+class NumberSorter:
+    def separate(self):
+        # open files
+        source = open("numbers.txt", "r")
+        #create files for odd and even
+        even = open("even.txt", "w")
+        odd = open("odd.txt", "w")
 
-#read every line then, identify if even or odd then add to respective file
-for line in numbers_file:
-    number = int(line)
-    if number % 2 == 0:
-        even_file.write(line)
-    else:
-        odd_file.write(line)
+        # check each number if even or odd
+        for line in source:
+            num = int(line)
 
-#Close the files
-even_file.close()
-odd_file.close()
-numbers_file.close()
+            if num % 2 == 0:
+                even.write(line)
+            else:
+                odd.write(line)
 
+        # close files
+        source.close()
+        even.close()
+        odd.close()
+
+
+# create object
+file = NumberSorter()
+
+# run method
+file.separate()
