@@ -8,12 +8,19 @@ highest_gwa = 0
 highest_gwa_name = ""
 
 for line in names_w_gwa:
-    data = line.strip().split(",")
-    name = data[0]
-    gwa = float(data[1])
+    name = ""
+    gwa = 0
+
+    for char in line:
+        if char.isalpha() or char == " ":
+            name += char
+        else:
+            gwa += int(char)
 
     if gwa > highest_gwa:
         highest_gwa = gwa
         highest_gwa_name = name
 
 names_w_gwa.close()
+
+print(highest_gwa_name)
