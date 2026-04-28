@@ -5,16 +5,19 @@
 
 #open and read file
 numbers_file = open('numbers.txt', 'r')
+#make and open even and odd file
 even_file = open('even.txt', 'w')
 odd_file = open('odd.txt', 'w')
 
+#read every line then, identify if even or odd then add to respective file
 for line in numbers_file:
     number = int(line)
     if number % 2 == 0:
         even_file.write(line)
     else:
         odd_file.write(line)
-        
+
+#Close the files
 even_file.close()
 odd_file.close()
 numbers_file.close()
