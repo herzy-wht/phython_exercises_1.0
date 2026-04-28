@@ -3,14 +3,17 @@
 
 # open and read files
 names_w_gwa = open("gwa_names.txt", "r")
-gwa = open("gwa.txt", "w")
+
+highest_gwa = 0
+highest_gwa_name = ""
 
 for line in names_w_gwa:
-    for char in line:
-        if char.isalpha():
-            continue
-        else:
-            gwa.write(char)
+    data = line.strip().split(",")
+    name = data[0]
+    gwa = float(data[1])
 
-gwa.close()
+    if gwa > highest_gwa:
+        highest_gwa = gwa
+        highest_gwa_name = name
+
 names_w_gwa.close()
