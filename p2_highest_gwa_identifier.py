@@ -9,13 +9,15 @@ highest_gwa_name = ""
 
 for line in names_w_gwa:
     name = ""
-    gwa = 0
+    gwa = ""
 
     for char in line:
         if char.isalpha() or char == " ":
             name += char
         else:
-            gwa += int(char)
+            gwa += char
+
+    gwa = int(gwa)
 
     if gwa > highest_gwa:
         highest_gwa = gwa
@@ -23,4 +25,4 @@ for line in names_w_gwa:
 
 names_w_gwa.close()
 
-print(highest_gwa_name)
+print(highest_gwa_name,highest_gwa)
