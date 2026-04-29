@@ -2,24 +2,29 @@
 # The first output file will be named double.txt containing the square of all even integers found in integers.txt and the second file will be named
 # triple.txt containing the cube of all odd numbers found in the integers.txt.
 
-file_integers = open("integers.txt", "r")
-double_integers = open("double.txt", "w")
-triple_integers = open("triple.txt", "w")
+class IntegerFileProcessor:
+    def __init__(self):
+        self.file_integers = open("integers.txt", "r")
+        self.double_integers = open("double.txt", "w")
+        self.triple_integers = open("triple.txt", "w")
 
-for line in file_integers:
-    line = int(line)
-    if line % 2 == 0:
-        square = line**2
-        square = str(square)
-        double_integers.write(square)
-        double_integers.write("\n")
-    else:
-        cube = line**3
-        cube = str(cube)
-        triple_integers.write(cube)
-        triple_integers.write("\n")
+    def process_files(self):
+        for line in self.file_integers:
+            line = int(line)
+            if line % 2 == 0:
+                square = line**2
+                square = str(square)
+                self.double_integers.write(square)
+                self.double_integers.write("\n")
+            else:
+                cube = line**3
+                cube = str(cube)
+                self.triple_integers.write(cube)
+                self.triple_integers.write("\n")
 
-file_integers.close()
-double_integers.close()
-triple_integers.close()
+        self.file_integers.close()
+        self.double_integers.close()
+        self.triple_integers.close()
 
+integers = IntegerFileProcessor()
+integers.process_files()
