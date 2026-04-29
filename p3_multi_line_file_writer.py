@@ -6,4 +6,5 @@ question = "y"
 
 while question == "y" :
     text = str(input("Enter Line: "))
+    file_name.write(text)
     question = str(input("Are there more lines y/n? "))
