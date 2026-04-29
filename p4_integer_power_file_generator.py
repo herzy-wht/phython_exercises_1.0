@@ -12,10 +12,12 @@ for line in file_integers:
         square = line**2
         square = str(square)
         double_integers.write(square)
+        double_integers.write("\n")
     else:
         cube = line**3
         cube = str(cube)
         triple_integers.write(cube)
+        triple_integers.write("\n")
 
 file_integers.close()
 double_integers.close()
