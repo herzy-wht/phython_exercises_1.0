@@ -10,13 +10,14 @@ for line in file_integers:
     line = int(line)
     if line % 2 == 0:
         square = line**2
+        square = str(square)
         double_integers.write(square)
     else:
         cube = line**3
+        cube = str(cube)
         triple_integers.write(cube)
 
 file_integers.close()
 double_integers.close()
 triple_integers.close()
-
 
